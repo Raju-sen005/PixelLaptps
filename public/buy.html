@@ -51,12 +51,15 @@
       margin-top: 10px;
     }
 @media (max-width: 768px) {
+  body{
+    overflow: hidden;
+  }
   #laptopDetails{
       width: 100% !important;
     font-size: large !important;
 }
   .contact-buttons{
-        font-size: 1rem !important;
+        font-size: 0.90rem !important;
     display: flex !important;
   }
 }
@@ -82,7 +85,7 @@
           const detailsDiv = document.getElementById('laptopDetails');
           detailsDiv.innerHTML = `
         <img src="${laptop.image}" alt="${laptop.model}" />
-        <h2>${laptop.brand} ${laptop.model}</h2>
+        <h2>${laptop.model}</h2>
         <p><b>Processor:</b> ${laptop.processor}</p>
         <p><b>RAM:</b> ${laptop.ram}</p>
         <p><b>Storage:</b> ${laptop.storage}</p>
