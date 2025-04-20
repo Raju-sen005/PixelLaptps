@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/product.css" media="only screen and (max-width: 426px)">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0px;
+        }
+
+        h1 {
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 15px;
+        }
+
+        .container {
+            font-family: 'Inter', sans-serif;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .model {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .brand {
+
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .specs {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .price {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #007b00;
+            margin-top: auto;
+        }
+
+        .buy-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            width: 50%;
+            position: relative;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.2s ease;
+            left: 8.8pc;
+            top: -1.8pc;
+        }
+
+        .buy-button:hover {
+            background-color: #0056b3;
+        }
+
+        #filters {
+            font-family: 'Inter', sans-serif;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            line-height: 2.5rem;
+            padding: 5px 25px;
+            background: #ffffff;
+            border-radius: 9px;
+        }
+
+        .navbar-brand img {
+            width: 60px;
+            filter: invert(1);
+        }
+
+        .navbar {
+            padding: 0px !important;
+        }
+
+        .navbar-brand {
+            padding: 0px !important;
+        }
+
+        a.cta-button {
+            text-decoration: auto !important;
+            color: white;
+            margin: auto;
+            padding: 6px;
+            font-size: 0.79rem;
+            border-radius: 0.1pc;
+            width: 16%;
+            transition: background-color 0.3s ease;
+            background-color: #28a745;
+            /* Green */
+        }
+
+        a.cta-b {
+            text-decoration: auto !important;
+            color: white;
+            margin: auto;
+            padding: 6px;
+            font-size: 0.79rem;
+            border-radius: 0.1pc;
+            width: 26%;
+            transition: background-color 0.3s ease;
+            background-color: #28a745;
+            /* Green */
+        }
+
+        a.cta-b:hover {
+            background-color: #218838;
+        }
+
+        a.cta-button:hover {
+            background-color: #218838;
+        }
+        .follow{
+            display: flex
+;
+    justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="data:image/jpeg;base64,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"" alt="">Pixel-Computers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    &nbsp;
+                    &nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html">Products</a>
+                    </li>
+                    &nbsp;
+                    &nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="tel:+919799046595" class="cta-button">Call Now</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://wa.me/919799046595" class="cta-b">WhatsApp Now</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1>Laptop Inventory</h1>
+    <div class="container">
+
+        <!-- Filters -->
+        <div id="filters">
+            <h3>Device Type</h3>
+            <input type="checkbox" name="device" value="Laptop" checked> Laptop<br>
+            <input type="checkbox" name="device" value="Desktop"> Desktop<br>
+          
+            <h3>Brand</h3>
+            <input type="checkbox" name="brand" value="HP"> HP<br>
+            <input type="checkbox" name="brand" value="Dell"> Dell<br>
+            <input type="checkbox" name="brand" value="Lenovo"> Lenovo<br>
+          
+            <h3>Price</h3>
+            <input type="range" id="priceRange" min="5000" max="100000" value="100000" step="500">
+            <span id="priceValue">₹1,00,000</span>
+          </div>
+          
+          <div class="grid" id="laptopGrid" style="display: contents;"></div>
+          
+          <script>
+          let laptopsData = [];
+          
+          function renderLaptops(data) {
+            const grid = document.getElementById('laptopGrid');
+            grid.innerHTML = '';
+          
+            if (data.length === 0) {
+              grid.innerHTML = '<p>No products found.</p>';
+              return;
+            }
+          
+            data.forEach(laptop => {
+              const card = document.createElement('div');
+              card.className = 'card';
+              card.innerHTML = `
+                <img src="${laptop.image}" alt="${laptop.model}" />
+                <div class="title">${laptop.brand} ${laptop.model}</div>
+                <div class="specs">
+                  <p><b>Processor:</b> ${laptop.processor}</p>
+                  <p><b>RAM:</b> ${laptop.ram}</p>
+                  <p><b>Storage:</b> ${laptop.storage}</p>
+                  <p><b>Display:</b> ${laptop.display}</p>
+                  <p><b>OS:</b> ${laptop.os}</p>
+                  <p><b>Graphics:</b> ${laptop.graphics}</p>
+                   <p class="price">₹${laptop.price}</p>
+                </div>
+              `;
+              card.addEventListener('click', () => {
+                window.location.href = `buy.html?id=${laptop.id}`;
+              });
+              grid.appendChild(card);
+            });
+          }
+          
+          function applyFilters() {
+            const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(cb => cb.value.toLowerCase());
+            const selectedDevices = Array.from(document.querySelectorAll('input[name="device"]:checked')).map(cb => cb.value.toLowerCase());
+            const maxPrice = parseInt(document.getElementById('priceRange').value);
+          
+            const filtered = laptopsData.filter(laptop => {
+              const brandMatch = selectedBrands.length ? selectedBrands.includes(laptop.brand.toLowerCase()) : true;
+              const deviceMatch = selectedDevices.length ? selectedDevices.includes((laptop.device || 'Laptop').toLowerCase()) : true;
+              const price = parseInt(laptop.price.replace(/[^0-9]/g, '')); // remove ₹ and commas
+              const priceMatch = price <= maxPrice;
+          
+              return brandMatch && deviceMatch && priceMatch;
+            });
+          
+            renderLaptops(filtered);
+          }
+          
+          // Update price label in real time
+          document.getElementById('priceRange').addEventListener('input', function () {
+            document.getElementById('priceValue').textContent = '₹' + parseInt(this.value).toLocaleString('en-IN');
+            applyFilters();
+          });
+          
+          // Attach filter listeners
+          document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', applyFilters);
+          });
+          
+          // Fetch data and initialize
+          fetch('/api/laptops')
+            .then(res => res.json())
+            .then(data => {
+              laptopsData = data;
+              renderLaptops(data);
+            });
+          </script>
+          
+        <footer style="    background-color: #1c1c1c;
+        color: white;
+        padding: 40px 20px;
+        font-family: sans-serif;
+        border-radius: 9px;;
+        ">
+            <div
+                style="max-width:1200px; margin:auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:20px;">
+
+                <div style="    position: relative;
+    left: -7%;">
+                    <h3 style="color:#00bcd4; position: relative;
+        left: 7%;">Pixel Computers</h3>
+                    <p style="    position: relative;
+            left: 7%;
+            top: 8%;">Your trusted store for branded laptops at the best prices. HP, Dell & Lenovo available with
+                        doorstep
+                        delivery.</p>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul style="list-style:none; padding:0;">
+                        <li><a href="about.html" style="color:white; text-decoration:none;">About Us</a></li>
+                        <li><a href="contact.html" style="color:white; text-decoration:none;">Contact</a></li>
+                        <li><a href="terms.html" style="color:white; text-decoration:none;">Terms & Conditions</a></li>
+                        <li><a href="privacy.html" style="color:white; text-decoration:none;">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Contact Us</h4>
+                    <p>Email: pixelcomputers@creativewebpixel.com</p>
+                    <p>Phone: +91-9799046595</p>
+                    <p>Location: Plot No 5, Jai Bharat Nagar, Sultan Nagar, Gujar Ki Thadi, Jaipur</p>
+                </div>
+
+                <div class="follow">
+                    <h4>Follow Us</h4>
+                     <a href="https://instagram.com/" target="_blank"><img
+                    src="https://cdn-icons-png.flaticon.com/128/174/174855.png" alt="instagram icon" width="35"
+                    height="35"></a><br>
+<br>
+            <a href="https://www.facebook.com/share/1BzaZbwQfs/" target="_blank"><img
+                    src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" alt="facebook icon" width="35"
+                    height="35"></a><br>
+        <br>
+            <a href="https://whatsapp.com/channel/0029VbAYbFOBlHpi7h9otP1m" target="_blank"><img
+                    src="https://cdn-icons-png.freepik.com/256/3670/3670051.png?semt=ais_hybrid" alt="Whatsapp icon" width="35"
+                    height="35"></a><br>
+        <br>
+        
+                    <!-- Add more links if needed -->
+                </div>
+            </div>
+
+            <div
+                style="text-align:center; margin-top:30px; font-size:14px; border-top:1px solid #444; padding-top:20px;">
+                © 2025 By PixelComputers by Creativewebpixel.Com
+            </div>
+        </footer>
+
+
+
+
+    </div>
+    <!-- <script>
+        const filters = document.querySelectorAll('#filters input');
+        const cards = document.querySelectorAll('.card');
+        const priceRange = document.getElementById('priceRange');
+        const priceValue = document.getElementById('priceValue');
+
+        // Show current price value
+        priceRange.addEventListener('input', () => {
+            priceValue.textContent = `₹${priceRange.value}`;
+            applyFilters();
+        });
+
+        filters.forEach(filter => {
+            filter.addEventListener('change', applyFilters);
+        });
+
+        function applyFilters() {
+            const selectedDevices = Array.from(document.querySelectorAll('input[name="device"]:checked')).map(e => e.value.toLowerCase());
+            const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:checked')).map(e => e.value.toLowerCase());
+            const maxPrice = parseInt(priceRange.value);
+
+            cards.forEach(card => {
+                const device = card.dataset.device?.toLowerCase();
+                const brand = card.dataset.brand?.toLowerCase();
+                const price = parseInt(card.dataset.price);
+
+                const matchesDevice = selectedDevices.includes(device);
+                const matchesBrand = selectedBrands.length === 0 || selectedBrands.includes(brand);
+                const matchesPrice = price <= maxPrice;
+
+                const show = matchesDevice && matchesBrand && matchesPrice;
+                card.style.display = show ? 'block' : 'none';
+            });
+        }
+
+        applyFilters(); // Run once on page load
+
+
+    </script> -->
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

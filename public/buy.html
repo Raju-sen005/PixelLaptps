@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Buy Now</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0px;
+      display: grid;
+    }
+
+    .laptop-details {
+      font-family: 'Inter', sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+
+    }
+
+    .laptop-details img {
+      width: 100%;
+      height: auto;
+    }
+
+    .contact-buttons {
+      margin-top: 20px;
+    }
+
+    .contact-buttons a {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .contact-buttons a.whatsapp {
+      background-color: #25D366;
+    }
+
+    .price {
+      color: #e91e63;
+      /* Pink color */
+      font-weight: bold;
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <div class="laptop-details" id="laptopDetails">
+    <!-- Laptop details will be populated here -->
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const laptopId = params.get('id');
+
+    // Fetch laptop data
+    fetch('/api/laptops')
+      .then(res => res.json())
+      .then(data => {
+        const laptop = data.find(item => item.id == laptopId);
+        if (laptop) {
+          const detailsDiv = document.getElementById('laptopDetails');
+          detailsDiv.innerHTML = `
+        <img src="${laptop.image}" alt="${laptop.model}" />
+        <h2>${laptop.brand} ${laptop.model}</h2>
+        <p><b>Processor:</b> ${laptop.processor}</p>
+        <p><b>RAM:</b> ${laptop.ram}</p>
+        <p><b>Storage:</b> ${laptop.storage}</p>
+        <p><b>Display:</b> ${laptop.display}</p>
+        <p><b>OS:</b> ${laptop.os}</p>
+        <p><b>Graphics:</b> ${laptop.graphics}</p>
+        <p class="price">₹${laptop.price}</p>
+        <div class="contact-buttons">
+          <a href="tel:+919799046595">📞 Call Now to Buy</a>
+          <a class="whatsapp" href="https://wa.me/919799046595?text=I'm%20interested%20in%20${encodeURIComponent(laptop.brand + ' ' + laptop.model)}">💬 WhatsApp Now to Buy</a>
+        </div>
+      `;
+        } else {
+          document.getElementById('laptopDetails').innerHTML = '<p>Laptop not found.</p>';
+        }
+      });
+
+  </script>
+</body>
+
+</html>

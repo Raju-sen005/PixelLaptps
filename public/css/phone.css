@@ -1,0 +1,111 @@
+@media (max-width: 426px) {
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0px;
+      overflow-x: hidden;
+      width: 100%;
+    }
+    .navbar-brand img {
+      width: 60px;
+      filter: invert(1);
+    }
+    .carousel-inner {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      height: 283px !important;
+    }
+    .navbar-brand {
+      position: relative;
+      top: 12px;
+    }
+    .navbar-toggler {
+      text-decoration: none;
+      position: relative;
+      top: 12px;
+    }
+    a.cta-button {
+      text-decoration: auto !important;
+      color: white;
+      padding: 6px;
+      margin: 0px;
+      font-size: 0.79rem;
+      text-align: center !important;
+      border-radius: 0.1pc;
+      width: 19% !important;
+      transition: background-color 0.3sease;
+      background-color: #28a745;
+    }
+    a.cta-b {
+      text-decoration: auto !important;
+      color: white;
+      margin: 0px;
+      padding: 6px;
+      font-size: 0.79rem;
+      text-align: center !important;
+      border-radius: 0.1pc;
+      width: 30% !important;
+      transition: background-color 0.3sease;
+      background-color: #28a745;
+      margin-bottom: 1rem;
+    }
+    .container {
+      display: grid !important;
+      gap: 10px !important;
+      grid-template-columns: 2fr !important;
+    }
+    .card{
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      display: flex
+  ;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease;
+      text-align: justify;
+    }
+    .buy-button{
+      background-color: #007bff;
+      color: white;
+      border: none;
+      width: 70% !important;
+      position: relative;
+      margin: auto;
+      padding: 10px !important;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: smaller !important;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.2s ease;
+      left: 0px !important;
+      top: 7px !important;
+    }
+    footer{
+      background-color: #1c1c1c;
+      color: white;
+      padding: 40px 20px;
+      font-family: sans-serif;
+      overflow-x: hidden !important;
+      margin: 50px 0px 0px 0px !important;
+    }
+    .pxl{
+      position: relative;
+      left: -7%;
+    }
+    .follow{
+      position: relative;
+      left: 0px;
+    }
+    .grid{
+      display: grid;
+      grid-template-columns: 2fr !important;
+      gap: 20px;
+      margin-top: 30px;
+      padding: 1pc;
+    }
+  }

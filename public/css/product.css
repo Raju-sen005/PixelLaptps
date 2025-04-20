@@ -1,0 +1,110 @@
+@media (max-width: 426px) {
+    .buy-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      width: 50%;
+      position: relative;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.2sease;
+      left: 10pc !important;
+      top: -5px !important;
+    }
+    .navbar-brand img {
+      width: 60px;
+      filter: invert(1);
+    }
+    .navbar-toggler {
+      text-decoration: none;
+      position: relative;
+      top: 12px;
+    }
+    .navbar {
+      padding: 0px !important;
+    }
+  
+     .navbar-brand {
+      position: relative;
+      top: 12px;
+    }
+  
+    a.cta-button {
+      text-decoration: auto !important;
+      color: white;
+      margin: 0px !important;
+      padding: 6px;
+      font-size: 0.79rem;
+      text-align: center !important;
+      border-radius: 0.1pc;
+      width: 19% !important;
+      transition: background-color 0.3s ease;
+      background-color: #28a745;
+      /* Green */
+    }
+  
+    a.cta-b {
+      text-decoration: auto !important;
+      color: white;
+      margin: 0px !important;
+      padding: 6px;
+      font-size: 0.79rem;
+      border-radius: 0.1pc;
+      text-align: center !important;
+      width: 30% !important;
+      transition: background-color 0.3s ease;
+      background-color: #28a745;
+      margin-bottom: 1rem !important;
+      /* Green */
+    }
+  
+    a.cta-b:hover {
+      background-color: #218838;
+    }
+  
+    a.cta-button:hover {
+      background-color: #218838;
+    }
+    /* #filters{
+      display: block;
+      width: 73% !important;
+      padding: 5px 25px;
+      background: #ffffff;
+      border-radius: 15px !important;
+  }
+  .price {
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #007b00;
+      margin-top: auto;
+      position: relative;
+      top: 21px;
+  } 
+    .container {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: 2fr 2fr !important;
+    }
+  } */
+    footer {
+      background-color: #1c1c1c;
+      color: white;
+      padding: 40px 20px;
+      font-family: sans-serif;
+      border-radius: 9px;
+      margin: 0px !important;
+    }
+    .span{
+          display: flex;
+      text-align: center;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    .follow{
+      display: block;
+    }
+  }

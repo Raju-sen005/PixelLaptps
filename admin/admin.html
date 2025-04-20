@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Pixel Computers</title>
+    <style>
+        @media (max-width: 768px) {
+  form {
+    width: 90%;
+    padding: 10px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 15px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  td {
+    padding: 10px;
+    text-align: right;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+/* /////////[]//////// */
+        body {
+            font-family: Arial;
+            padding: 5px;
+      background: lightseagreen;
+            
+        }
+
+        form input,
+        form button {
+            display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th,
+        td {
+            padding: 6.3px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        img {
+            width: 80px;
+        }
+        h2{
+            text-align: center;
+    position: relative;
+    left: 11px;
+        }
+        form{
+            width: 30%;
+    display: block;
+    margin: auto;
+        }
+       td button {
+  background-color: #e74c3c;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+td button:hover {
+  background-color: #c0392b;
+}
+    </style>
+  
+
+</head>
+
+<body>
+    <h2> Add Laptop</h2>
+    <form id="laptopForm">
+        <input type="text" id="id" placeholder="id" required />
+        <input type="text" id="brand" placeholder="Brand" required />
+        <input type="text" id="model" placeholder="Model" required />
+        <input type="text" id="price" placeholder="Price" required />
+        <input type="text" id="processor" placeholder="Processor" required />
+        <input type="text" id="ram" placeholder="RAM" required />
+        <input type="text" id="storage" placeholder="Storage" required />
+        <input type="text" id="display" placeholder="Display Size / Type" required />
+        <input type="text" id="image" placeholder="Image URL" required />
+        <input type="text" id="os" placeholder="Operating System" required />
+        <input type="text" id="graphics" placeholder="Graphics Card" required />
+        <button type="submit">Add Laptop</button>
+    </form>
+
+    <h3>All Laptops</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Price</th>
+                <th>Processor</th>
+                <th>RAM</th>
+                <th>Storage</th>
+                <th>Display</th>
+                <th>OS</th>
+                <th>Graphics</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="laptopTable"></tbody>
+    </table>
+    <script>
+        if (sessionStorage.getItem('loggedIn') !== 'true') {
+          window.location.href = 'admin-login.html';
+        }
+      </script>
+      
+    <script src="admin.js"></script>
+</body>
+
+</html>
