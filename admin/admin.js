@@ -1,5 +1,5 @@
 // admin/admin.js
-const apiUrl = 'http://localhost:3000/api/laptops';
+const apiUrl = 'https://pixellaptps.onrender.com/api/laptops';
 const form = document.getElementById('laptopForm');
 const table = document.getElementById('laptopTable');
 
